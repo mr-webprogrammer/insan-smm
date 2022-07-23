@@ -208,13 +208,11 @@ small {
         background-color: #fada0c;
         content: "";
         margin-right: 16px;
-
-       
-
+        @media (max-width:768px) {
+            display: none;
+        }
     }
-
     @media (max-width:768px) {
-        text-align: center;
-        font-size: 22px;
+        font-size: 18px;
     }
 }

@@ -36,7 +36,7 @@ function Header() {
           </div>
         </div>
         <div className="images">
-          <img className="top" src={change ? img1 : img2} />
+          <img className="top phone" src={img1} />
           <img src={wide} alt="" className="wide" />
         </div>
       </main>
@@ -74,9 +74,13 @@ const Wrapper = styled.header`
         top: 50%;
 
         @media (max-width: 768px) {
-          margin-top: 60px;
+          width: 100% !important;
+          margin-top: 90px;
           margin-left: 50px;
+          background-position: center;
          position: relative;
+         overflow: hidden;
+         height: 250px;
         }
       }
 
@@ -98,12 +102,15 @@ const Wrapper = styled.header`
           display: none;
         }
       }
-      img{
+      img {
         width: 100%;
         position: absolute;
         left: 40%;
         bottom: -60%;
-        transform: scale(1.2) translateY(-10%);
+        transform: scale(1) translateY(-10%);
+      }
+      .phone {
+        transform: translateX(-30px) scale(1);
       }
     }
   }

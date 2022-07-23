@@ -5,10 +5,13 @@ import img1 from "../images/header-phone.png";
 import img2 from "../images/header-mac.png";
 
 import wide from "../images/wide-logo.png";
+import { useTranslation } from "react-i18next";
 
 function Header() {
 
   const [change, setChange] = useState(false);
+  const { t } = useTranslation()
+
 
   setTimeout(
     () => {
@@ -21,15 +24,15 @@ function Header() {
       <Navbar />
       <main className="container flex align-center justify-between mobile-column">
         <div className="flex column">
-          <small>Insan Marketing Agency</small>
-          <h1>Insan - insonlar uchun marketing agentligi</h1>
+          <small>{t("companyname")}</small>
+          <h1>{t("header")}</h1>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore.
           </p>
           <div className="flex align-center   justify-start buttons ">
-            <button>Bog’lanish</button>
-            <button className="secondary">Xizmatlar</button>
+            <button>{t("boglanish")}</button>
+            <button className="secondary">{t("xizmatlar")}</button>
           </div>
         </div>
         <div className="images">

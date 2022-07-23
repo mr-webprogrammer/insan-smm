@@ -1,23 +1,25 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import bg from '../images/footer.png'
 
 function Footer() {
+  const {t} = useTranslation()
   return (
     <Wrapper  style={{ backgroundImage: `url(${bg})` }}>
       <div className="container" id="call">
         <div className="devider"></div>
-        <h1 className="white-text" >Bog’lanish</h1>
+        <h1 className="white-text" >{t("boglanish")}</h1>
         <div className="devider md"></div>
         <main className="flex align-start mobile-column">
           <form className="flex column align-stratch">
-            <input type="text" placeholder="Ism, Familyangiz" />
-            <input type="text" placeholder="Telefon raqamingiz" />
-            <textarea name="" id="" rows="4" placeholder="Qo’shimcha ma’lumot">
+            <input type="text" placeholder={t("ism")} />
+            <input type="text" placeholder={t("telefon")} />
+            <textarea name="" id="" rows="4" placeholder={t("qoshimcha")}>
               
             </textarea>
             <div className="send-btn flex">
-              <button className="secondary ">Yuborish</button>
+              <button className="secondary ">{t("yuborish")}</button>
             </div>
           </form>
           <div className="list ">
@@ -36,7 +38,7 @@ function Footer() {
                   fill="white"
                 />
               </svg>
-              <span>Joylashuv: Andijon Viloyati Baliqchi tumani 1b bino</span>
+              <span>{t("joylashuv")}: Andijon Viloyati Baliqchi tumani 1b bino</span>
             </p>
             <p>
               <svg
@@ -53,7 +55,7 @@ function Footer() {
               </svg>
 
               <span>
-                Telefon raqam: <br /> +998 99 366 76 39
+              {t("telefonraqam")} <br /> +998 99 366 76 39
               </span>
             </p>
             <p>
@@ -71,7 +73,7 @@ function Footer() {
               </svg>
 
               <span>
-                Telegram manzil: <br />
+              {t("telegrammanzil")}: <br />
                 @IsmoilTurdaliyev
               </span>
             </p>
@@ -97,7 +99,7 @@ function Footer() {
               </svg>
 
               <span>
-                Instagram manzil: <br />
+              {t("instagrammanzil")}<br />
                 @Ismoil.Turdaliyev.muslim
               </span>
             </p>

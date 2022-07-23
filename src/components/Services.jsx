@@ -9,9 +9,11 @@ import branding from "../images/branding.png";
 import "swiper/css/pagination";
 import { Pagination } from "swiper";
 import SlideTop from "./SlideTop";
+import { useTranslation } from "react-i18next";
 
 function Services() {
   const [custom_swiper, set_swiper] = useState({});
+  const {t} = useTranslation()
   const nextSlide = () => {
     custom_swiper.slideNext();
   };
@@ -23,7 +25,7 @@ function Services() {
       <SlideTop
         next={nextSlide}
         prev={prevSlide}
-        title="Bizning Xizmatlarimiz"
+        title={t("bizningxizmatlarimiz")}
         description={
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed incididunt ut labore."
         }

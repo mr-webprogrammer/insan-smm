@@ -5,8 +5,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import Testimonial from "./Testimonial";
 import img1 from "../images/testimonial.png";
+import { useTranslation } from "react-i18next";
 
 function Testimonials() {
+  const {t} = useTranslation()
   const [custom_swiper, set_swiper] = useState({});
   const nextSlide = () => {
     custom_swiper.slideNext();
@@ -19,7 +21,7 @@ function Testimonials() {
       <SlideTop
         next={nextSlide}
         prev={prevSlide}
-        title={"Mijozlar Fikri"}
+        title={t("mijozlarfikri")}
         description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed incididunt ut labore."
       />
       <div className="devider md"></div>

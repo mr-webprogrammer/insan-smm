@@ -5,9 +5,11 @@ import SlideTop from "./SlideTop";
 import p1 from "../images/project1.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import { useTranslation } from "react-i18next";
 
 function Projects() {
   const [custom_swiper, set_swiper] = useState({});
+  const {t} = useTranslation()
   const nextSlide = () => {
     custom_swiper.slideNext();
   };
@@ -21,7 +23,7 @@ function Projects() {
         <SlideTop
           next={nextSlide}
           prev={prevSlide}
-          title="Bizning Ishlarimiz"
+          title={t("bizningishlarimiz")}
           description={
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed incididunt ut labore."
           }

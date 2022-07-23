@@ -7,7 +7,8 @@ import sound from "../sound/click.wav"
 import sound2 from "../sound/click2.wav"
 
 import logo from "../images/logo.svg"
-import { NavLink } from 'react-router-dom'
+import { useTranslation } from "react-i18next";
+import i18next, { changeLanguage } from "i18next";
 
 
 
@@ -31,7 +32,12 @@ export default function Navbar() {
   }
   );
 
+  const { t } = useTranslation()
 
+
+  const changeLanguage = (lang) => {
+    i18next.changeLanguage(lang)
+  }
 
 
 
@@ -56,16 +62,16 @@ export default function Navbar() {
         <div className={`links ${isNavOpen ? "show" : ""}`}>
           <ul>
             <li>
-              <a href="#about">Biz Haqimizda</a>
+              <a href="#about">{t("bizhaqimizda")}</a>
             </li>
             <li>
-              <a href="#testimonial">Bu kimlar uchun</a>
+              <a href="#testimonial">{t("kimlaruchun")}</a>
             </li>
             <li>
-              <a href="#services">Xizmatlar</a>
+              <a href="#services">{t("xizmatlar")}</a>
             </li>
             <li>
-              <a href="#call">Aloqa</a>
+              <a href="#call">{t("aloqa")}</a>
             </li>
           </ul>
         </div>
@@ -76,6 +82,7 @@ export default function Navbar() {
             <span onClick={() => {
               setLanguage(1)
               music.play()
+              changeLanguage("ru")
 
             }
             } className={language == 1 ? "active" : ""}>RU</span>
@@ -83,13 +90,15 @@ export default function Navbar() {
             <span onClick={() => {
               setLanguage(2)
               music.play()
+              changeLanguage("uz")
+
 
             }
             } className={language == 2 ? "active" : ""}>UZ</span>
 
           </div>
 
-          <button >Bog’lanish</button>
+          <button >{t("boglanish")}</button>
 
         </div>
 
@@ -101,7 +110,7 @@ export default function Navbar() {
             }
             } />
 
-            
+
           ) : (
             <GiHamburgerMenu
               onClick={(e) => {

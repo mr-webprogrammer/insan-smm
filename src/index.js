@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./styles/classess.scss";
 import "./styles/common.scss";
 import "./styles/fonts.scss";
-import "./firebase"
+import "./language"
 import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

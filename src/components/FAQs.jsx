@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 
 function FAQs() {
+  const {t} = useTranslation() ;
   let acc = document.getElementsByClassName("accordion");
   let i;
   for (i = 0; i < acc.length; i++) {
@@ -20,7 +22,7 @@ function FAQs() {
     <Wrapper className="linear-bg" id="testimonial">
       <div className="container">
         <div className="devider"></div>
-        <h1>Xizmatlarimiz kimlar uchun?</h1>
+        <h1>{t("kimlaruchun")}</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
           incididunt ut labore.

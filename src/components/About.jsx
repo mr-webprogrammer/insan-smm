@@ -1,13 +1,16 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import wide from "../images/wide-logo.png";
 
 function About() {
+  const { t } = useTranslation()
+
   return (
     <Wrapper className="container flex align-center mobile-column-reverse">
       <img src={wide} alt="" />
       <main id="about">
-        <h1>Biz Haqimizda!</h1>
+        <h1>{t("bizhaqimizda")}</h1>
         <div className="devider half"></div>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -19,7 +22,7 @@ function About() {
           id est laborum.
         </p>
         <div className="devider half"></div>
-        <button>Xizmatlar</button>
+        <button>{t("xizmatlar")}</button>
       </main>
     </Wrapper>
   );

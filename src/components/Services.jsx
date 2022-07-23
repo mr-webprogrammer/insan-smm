@@ -45,8 +45,11 @@ function Services() {
             },
             // when window width is >= 768px
             768: {
-              slidesPerView: 3,
+              slidesPerView: 2,
             },
+            1400: {
+              slidesPerView: 3,
+            }
           }}
           onInit={(ev) => {
             set_swiper(ev);

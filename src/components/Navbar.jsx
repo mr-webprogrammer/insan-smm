@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdClose } from "react-icons/md";
 
+import sound from "../sound/click.wav"
+import sound2 from "../sound/click2.wav"
 
 import logo from "../images/logo.svg"
 import { NavLink } from 'react-router-dom'
@@ -21,7 +23,13 @@ export default function Navbar() {
 
 
   const html = document.querySelector("html");
-  html.addEventListener("click", (e) => setIsNavOpen(false));
+  const music = document.querySelector("#music")
+  const music2 = document.querySelector("#music2")
+
+  html.addEventListener("click", (e) => {
+    setIsNavOpen(false)
+  }
+  );
 
 
 
@@ -39,6 +47,10 @@ export default function Navbar() {
 
         <div className="brand">
           <img src={logo} alt="" />
+
+          <audio id="music" src={sound}></audio>
+          <audio id="music2" src={sound2}></audio>
+
         </div>
 
         <div className={`links ${isNavOpen ? "show" : ""}`}>
@@ -63,11 +75,15 @@ export default function Navbar() {
           <div className="language">
             <span onClick={() => {
               setLanguage(1)
+              music.play()
+
             }
             } className={language == 1 ? "active" : ""}>RU</span>
 
             <span onClick={() => {
               setLanguage(2)
+              music.play()
+
             }
             } className={language == 2 ? "active" : ""}>UZ</span>
 
@@ -79,12 +95,19 @@ export default function Navbar() {
 
         <div className="toggle">
           {isNavOpen ? (
-            <MdClose onClick={() => setIsNavOpen(false)} />
+            <MdClose onClick={() => {
+              setIsNavOpen(false)
+              music.play()
+            }
+            } />
+
+            
           ) : (
             <GiHamburgerMenu
               onClick={(e) => {
                 e.stopPropagation();
                 setIsNavOpen(true);
+                music.play()
               }}
             />
           )}
@@ -164,7 +187,7 @@ const Nav = styled.nav`
       span {
         display: inline-block;
         padding: 0 10px;
-        font-size: 24px;
+        font-size: 20px;
         font-weight: 500;
         color: #9B9B9B;
         cursor: pointer;
@@ -185,13 +208,7 @@ const Nav = styled.nav`
   }
 
   @media (max-width: 1430px) {
-    button {
-      /* display: none; */
-      font-size: 18px;
-      width: 190px;
-      height: 50px;
-      
-    }
+    
     
     .brand {
       display: flex;
@@ -229,7 +246,7 @@ const Nav = styled.nav`
           font-size: 18px ;
           color:  #111111;
           text-decoration: none;
-          background: linear-gradient(0deg, slateblue, slateblue) no-repeat right bottom / 0 var(--bg-h);
+          background: linear-gradient(0deg, #848192, #6a6876) no-repeat right bottom / 0 var(--bg-h) !important;
           transition: background-size 350ms;
           --bg-h: 100%;
           text-decoration: none;

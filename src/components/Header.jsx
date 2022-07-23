@@ -29,13 +29,11 @@ function Header() {
           </p>
           <div className="flex align-center   justify-start buttons ">
             <button>Bog’lanish</button>
-            <button className="secondary">Xizmatlars</button>
+            <button className="secondary">Xizmatlar</button>
           </div>
         </div>
         <div className="images">
-          <div id="cf">
-            <img className="top" src={change ? img1 : img2} />
-          </div>
+          <img className="top" src={change ? img1 : img2} />
           <img src={wide} alt="" className="wide" />
         </div>
       </main>
@@ -63,24 +61,46 @@ const Wrapper = styled.header`
     .images{
       width: 100%;
       flex: 0 0 40%;
+      position: relative;
+      /* transform: translateY(-130px); */
+      top: 0;
+      .top {
+        position: absolute;
+        z-index: 9;
+        left: -30px;
+        top: 50%;
 
-      
+        @media (max-width: 768px) {
+          margin-top: 60px;
+          margin-left: 50px;
+         position: relative;
+        }
+      }
 
 
       .wide{
-        position: absolute;
-        top: -55%;
+        position: relative;
+        /* top: -85%; */
         right: 5%;
         opacity: 0.08;
         width: 300px;
+        /* transform: translateY(-70px); */
+        /* transform: translateX(100px); */
+        z-index: 1;
         @media (max-width:1400px) {
-          top: -65%;
+          top: -68%;
           right: 0;
+        }
+        @media (max-width: 768px) {
+          display: none;
         }
       }
       img{
         width: 100%;
-        transform: scale(1.2) translateY(30%);
+        position: absolute;
+        left: 40%;
+        bottom: -60%;
+        transform: scale(1.2) translateY(-10%);
       }
     }
   }
